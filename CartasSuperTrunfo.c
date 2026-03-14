@@ -10,6 +10,8 @@ int main() {
     float area, area2;
     float pib, pib2;
     int pontos, pontos2;
+    float densidade, densidade2;
+    float pib_per_capita, pib_per_capita2;
 
     printf("--- Cadastro da Carta 1 ---\n");
     printf("Digite a letra do estado (A-H): ");
@@ -29,7 +31,7 @@ int main() {
     printf("Digite a área (use virgula): ");
     scanf("%f", &area);
     
-    printf("Digite o PIB (use virgula): ");
+    printf("Digite o PIB em bilhões de reais (use virgula): ");
     scanf("%f", &pib);
 
     printf("Digite o numero de pontos turisticos: ");
@@ -57,17 +59,23 @@ int main() {
     printf("Digite a área (use virgula): ");
     scanf("%f", &area2);
 
-    printf("Digite o PIB (use virgula): ");
+    printf("Digite o PIB em bilhões de reais (use virgula): ");
     scanf("%f", &pib2);
 
     printf("Digite o numero de pontos turisticos: ");
     scanf("%d", &pontos2);
+     
+    densidade = (float)populacao / area;
+    pib_per_capita = (float) (pib*1000000000) / populacao;
+    densidade2 = (float)populacao2 / area2;
+    pib_per_capita2 = (float) (pib2*1000000000) / populacao2;
+
 
     printf("\n--- CARTAS CADASTRADAS ---\n");
-    printf("Carta 1:\n Estado: %c\n Código: %c%s\n Nome da cidade: %s\n População: %d\n Area: %.2f KM²\n PIB: %.2f bilhões de reais\n Números de pontos turisticos: %d\n", 
-           estado, estado, codigo, cidade, populacao, area, pib, pontos);
-    printf("Carta 2:\n Estado: %c\n Código: %c%s\n Nome da cidade: %s\n População: %d\n Area: %.2f KM²\n PIB: %.2f bilhões de reais\n Números de pontos turisticos: %d\n", 
-           estado2, estado2, codigo2, cidade2, populacao2, area2, pib2, pontos2);
+    printf("Carta 1:\n Estado: %c\n Código: %c%s\n Nome da cidade: %s\n População: %d\n Area: %.2f KM²\n PIB: %.2f bilhões de reais\n Números de pontos turisticos: %d\n Densidade populacional: %.2f hab/KM²\n PIB per capita: %.2f reais\n", 
+           estado, estado, codigo, cidade, populacao, area, pib, pontos, densidade, pib_per_capita);
+    printf("Carta 2:\n Estado: %c\n Código: %c%s\n Nome da cidade: %s\n População: %d\n Area: %.2f KM²\n PIB: %.2f bilhões de reais\n Números de pontos turisticos: %d\n Densidade populacional: %.2f hab/KM²\n PIB per capita: %.2f reais\n", 
+           estado2, estado2, codigo2, cidade2, populacao2, area2, pib2, pontos2, densidade2, pib_per_capita2);
 
     return 0;
 }
