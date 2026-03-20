@@ -6,12 +6,13 @@ int main() {
     char estado, estado2;
     char codigo[5], codigo2[5]; 
     char cidade[80], cidade2[80];
-    int populacao, populacao2;
+    unsigned long int populacao, populacao2;
     float area, area2;
     float pib, pib2;
     int pontos, pontos2;
     float densidade, densidade2;
     float pib_per_capita, pib_per_capita2;
+    unsigned long int super_carta1, super_carta2;
 
     printf("--- Cadastro da Carta 1 ---\n");
     printf("Digite a letra do estado (A-H): ");
@@ -69,6 +70,9 @@ int main() {
     pib_per_capita = (float) (pib*1000000000) / populacao;
     densidade2 = (float)populacao2 / area2;
     pib_per_capita2 = (float) (pib2*1000000000) / populacao2;
+    super_carta1 = populacao + area + pib + pontos + pib_per_capita - densidade;
+    super_carta2 = populacao2 + area2 + pib2 + pontos2 + pib_per_capita2 - densidade2;
+
 
 
     printf("\n--- CARTAS CADASTRADAS ---\n");
@@ -76,6 +80,20 @@ int main() {
            estado, estado, codigo, cidade, populacao, area, pib, pontos, densidade, pib_per_capita);
     printf("Carta 2:\n Estado: %c\n Código: %c%s\n Nome da cidade: %s\n População: %d\n Area: %.2f KM²\n PIB: %.2f bilhões de reais\n Números de pontos turisticos: %d\n Densidade populacional: %.2f hab/KM²\n PIB per capita: %.2f reais\n", 
            estado2, estado2, codigo2, cidade2, populacao2, area2, pib2, pontos2, densidade2, pib_per_capita2);
+
+    printf("\n--- Comparação de Cartas ---\n");
+
+    printf("População: Carta 1 Venceu? %d\n", populacao > populacao2);
+    printf("Área: Carta 1 Venceu? %d\n", area > area2);
+    printf("PIB: Carta 1 Venceu? %d\n", pib > pib2);
+    printf("Pontos Turisticos: Carta 1 Venceu? %d\n", pontos > pontos2);
+    printf("Densidade Populacional: Carta 1 Venceu? %d\n", densidade < densidade2);
+    printf("PIB per Capita: Carta 1 Venceu? %d\n", pib_per_capita > pib_per_capita2);
+    printf("Super poder: Carta 1 Venceu? %d\n", super_carta1 > super_carta2);
+
+
+
+
 
     return 0;
 }
