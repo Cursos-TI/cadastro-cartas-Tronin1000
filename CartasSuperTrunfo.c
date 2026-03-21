@@ -92,8 +92,11 @@ int main() {
     printf("Super poder: Carta 1 Venceu? %d\n", super_carta1 > super_carta2);
 
 
-
-
-
+    if (populacao > populacao2){
+              printf("Carta 1 %s venceu !!!\n", cidade);
+    }else{
+       printf("Carta 2 %s venceu !!!\n", cidade2);
+    }
+     
     return 0;
 }
