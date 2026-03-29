@@ -13,7 +13,7 @@ int main() {
     float densidade, densidade2;
     float pib_per_capita, pib_per_capita2;
     unsigned long int super_carta1, super_carta2;
-    int escolha_ataque;
+    int escolha_ataque1, escolha_ataque2;
 
     printf("--- Cadastro da Carta 1 ---\n");
     printf("Digite a letra do estado (A-H): ");
@@ -90,77 +90,77 @@ int main() {
     printf("5. Densidade Populacional\n");
     printf("6. PIB per Capita\n");
     printf("7. Super Poder\n");
-    scanf("%d", &escolha_ataque);
+    scanf("%d", &escolha_ataque1);
+    scanf("%d", &escolha_ataque2);
 
-       switch (escolha_ataque)
+       switch (escolha_ataque1)
        {
        case 1:
-              if (populacao > populacao2){
-                     printf("Carta 1 venceu com População!\n");
-              } else if (populacao < populacao2){
-                     printf("Carta 2 venceu com População!\n");
-              } else {
-                     printf("Empate na categoria População!\n");
-              }                       
+             escolha_ataque1 = (populacao > populacao2) ? 1 : 0;
+                     
               break;
        case 2:
-              if (area > area2){
-                     printf("Carta 1 venceu com Área!\n");
-              } else if (area < area2){
-                     printf("Carta 2 venceu com Área!\n");
-              } else {
-                     printf("Empate na categoria Área!\n");
-              }                       
+              escolha_ataque1 = (area > area2) ? 1 : 0;   
               break;
        case 3:
-              if (pib > pib2){
-                     printf("Carta 1 venceu com PIB!\n");
-              } else if (pib < pib2){
-                     printf("Carta 2 venceu com PIB!\n");
-              } else {
-                     printf("Empate na categoria PIB!\n");
-              }
+              escolha_ataque1 = (pib > pib2) ? 1 : 0;
               break;
        case 4:
-              if (pontos > pontos2){
-                     printf("Carta 1 venceu com Pontos Turísticos!\n");
-              } else if (pontos < pontos2){
-                     printf("Carta 2 venceu com Pontos Turísticos!\n");
-              } else {
-                     printf("Empate na categoria Pontos Turísticos!\n");
-              }
+              escolha_ataque1 = (pontos > pontos2) ? 1 : 0;
               break;
+
        case 5:
-              if (densidade < densidade2){
-                     printf("Carta 1 venceu com Densidade Populacional!\n");
-              } else if (densidade > densidade2){
-                     printf("Carta 2 venceu com Densidade Populacional!\n");
-              } else {
-                     printf("Empate na categoria Densidade Populacional!\n");
-              }
+              escolha_ataque1 = (densidade < densidade2) ? 1 : 0;
               break;
        case 6:
-              if (pib_per_capita > pib_per_capita2){
-                     printf("Carta 1 venceu com PIB per Capita!\n");
-              } else if (pib_per_capita < pib_per_capita2){
-                     printf("Carta 2 venceu com PIB per Capita!\n");
-              } else {
-                     printf("Empate na categoria PIB per Capita!\n");
-              }
+              escolha_ataque1 = (pib_per_capita > pib_per_capita2) ? 1 : 0;
               break;
+
        case 7:
-              if (super_carta1 > super_carta2){
-                     printf("Carta 1 venceu com Super Poder!\n");
-              } else if (super_carta1 < super_carta2){
-                     printf("Carta 2 venceu com Super Poder!\n");
-              } else {
-                     printf("Empate na categoria Super Poder!\n");
-              }
+              escolha_ataque1 = (super_carta1 > super_carta2) ? 1 : 0;
               break;
 
        default:
               printf("Escolha de ataque inválida!\n");
               break;
        }
+       switch (escolha_ataque2)
+       {
+       case 1:
+              escolha_ataque2 = (populacao2 < populacao) ? 1 : 0;                      
+              break;
+       case 2:
+              escolha_ataque2 = (area2 < area) ? 1 : 0;                     
+              break;
+       case 3:
+              escolha_ataque2 = (pib2 < pib) ? 1 : 0;                     
+              break;
+       case 4:
+              escolha_ataque2 = (pontos2 < pontos) ? 1 : 0;
+              break;
+       case 5:
+              escolha_ataque2 = (densidade2 > densidade) ? 1 : 0;
+              break;
+       case 6:
+              escolha_ataque2 = (pib_per_capita2 < pib_per_capita) ? 1 : 0;
+              break;
+       case 7:
+              escolha_ataque2 = (super_carta2 < super_carta1) ? 1 : 0;
+              break;
+       default:
+              printf("Escolha de ataque inválida!\n");
+              break;
+       }
+
+       if (escolha_ataque1 && escolha_ataque2)
+       {
+             printf("Você venceu a partida!\n");
+       }else if (escolha_ataque1 && !escolha_ataque2)
+       {
+              printf("Empate na partida!\n");
+       } else {
+              printf("Você perdeu a partida!\n");
+       }      
+       
     return 0;
 }
